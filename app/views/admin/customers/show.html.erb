@@ -17,9 +17,9 @@
   <%= @customer.email %>
   <h4>会員ステータス</h4>
   <% if @customer.is_deleted? %>
-    <span>有効</span>
-  <% else %>
     <span>退会</span>
+  <% else %>
+    <span>有効</span>
   <% end %>
   <p><%= link_to '編集する',edit_admin_customer_path %></p>
 </div>
