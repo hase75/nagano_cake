@@ -29,7 +29,7 @@
           <%= link_to "ログアウト", destroy_admin_session_path, method: :delete %>
         </li>
       <% elsif customer_signed_in? %>
-      　<li>
+        <li>
           <%= link_to "ログアウト", destroy_customer_session_path, method: :delete %>
         </li>
       <% else %>

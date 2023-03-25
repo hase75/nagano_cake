@@ -13,8 +13,8 @@ class Admin::CustomersController < ApplicationController
   end
 
   def update
-    item = Item.find(params[:id])
-    item.update(customer_params)
+    customer = Customer.find(params[:id])
+    customer.update(customer_params)
     redirect_to admin_customers_path
   end
   
@@ -22,7 +22,7 @@ class Admin::CustomersController < ApplicationController
   private
 
   def customer_params
-    params.require(:customer).permit(:last_name, :first_name, :last_name_kana, :first_name_kana, :email, :postal_code, :address, :telephone_number, :is_deleted)
+    params.require(:customer).permit(:full_name, :full_name_kana, :last_name, :first_name, :last_name_kana, :first_name_kana, :email, :postal_code, :address, :telephone_number, :is_deleted)
   end
   
   
