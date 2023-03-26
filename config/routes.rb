@@ -9,6 +9,7 @@ Rails.application.routes.draw do
     root to: 'homes#top'
     get 'about' => 'homes#about'
     resources :customers, only: [:show, :edit, :update]
+    resources :addresses, only: [:index, :edit, :create, :update, :destroy]
   end
 
   devise_for :admin, skip: [:registrations, :passwords], controllers: {
