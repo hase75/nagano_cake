@@ -1,0 +1,13 @@
+<div>
+  <%= image_tag @item.get_image %>
+  
+  <h1>商品名</h1>
+  <%= @item.name %>
+  
+  <h4>商品説明</h4>
+  <%= @item.introduction %>
+  
+  <%= @item.price %>(税込)
+  
+  <p><%= link_to 'カートに入れる', %></p>
+</div>

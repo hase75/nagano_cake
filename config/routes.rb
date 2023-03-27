@@ -8,8 +8,11 @@ Rails.application.routes.draw do
   scope module: :public do
     root to: 'homes#top'
     get 'about' => 'homes#about'
-    resources :customers, only: [:show, :edit, :update]
+    get 'customers/my_page' => 'customers#show'
+    get 'customers/infomation/edit' =>'customers#edit'
+    patch 'customers/information' => 'customers#update'
     resources :addresses, only: [:index, :edit, :create, :update, :destroy]
+    resources :items, only: [:index, :show]
   end
 
   devise_for :admin, skip: [:registrations, :passwords], controllers: {
