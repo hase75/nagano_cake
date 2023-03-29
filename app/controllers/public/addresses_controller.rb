@@ -2,7 +2,7 @@ class Public::AddressesController < ApplicationController
 
   def index
     @address = Address.new
-    @addresses = Address.all
+    @addresses = current_customer.addresses
   end
 
   def create
@@ -31,7 +31,7 @@ class Public::AddressesController < ApplicationController
   private
 
   def address_params
-    params.require(:address).permit(:customer_id, :name, :postal_code, :address)
+    params.require(:address).permit(:name, :postal_code, :address)
   end
 
 end
