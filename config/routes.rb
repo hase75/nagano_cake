@@ -13,6 +13,7 @@ Rails.application.routes.draw do
     patch 'customers/information' => 'customers#update'
     resources :addresses, only: [:index, :edit, :create, :update, :destroy]
     resources :items, only: [:index, :show]
+    resources :cart_items, only: [:index, :create, :update, :destroy]
   end
 
   devise_for :admin, skip: [:registrations, :passwords], controllers: {

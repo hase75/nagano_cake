@@ -9,5 +9,8 @@
   
   <%= @item.price %>(税込)
   
-
+  <%= form_with model: @cart_item, url:cart_items_path do |f| %>
+    <%= f.hidden_field :item_id, :value => "いちごのショートケーキ" %>
+    <%= f.select :amount, *[1..10] %>
+  <% end %>
 </div>
