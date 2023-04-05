@@ -1,16 +1,17 @@
 <div>
   <%= image_tag @item.get_image %>
-  
+
   <h1>商品名</h1>
   <%= @item.name %>
-  
+
   <h4>商品説明</h4>
   <%= @item.introduction %>
-  
+
   <%= @item.price %>(税込)
-  
+
   <%= form_with model: @cart_item, url:cart_items_path do |f| %>
-    <%= f.hidden_field :item_id, :value => "いちごのショートケーキ" %>
+    <%= f.hidden_field :item_id, :value => @item.id %>
     <%= f.select :amount, *[1..10] %>
+    <%= f.submit 'カートに入れる' %>
   <% end %>
 </div>

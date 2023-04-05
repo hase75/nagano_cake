@@ -4,15 +4,16 @@ Rails.application.routes.draw do
     registrations: "public/registrations",
     sessions: 'public/sessions'
   }
-  
+
   scope module: :public do
     root to: 'homes#top'
-    get 'about' => 'homes#about'
-    get 'customers/my_page' => 'customers#show'
-    get 'customers/infomation/edit' =>'customers#edit'
-    patch 'customers/information' => 'customers#update'
+    get 'about',to: 'homes#about'
+    get 'customers/my_page',to: 'customers#show'
+    get 'customers/infomation/edit',to: 'customers#edit'
+    patch 'customers/information',to: 'customers#update'
     resources :addresses, only: [:index, :edit, :create, :update, :destroy]
     resources :items, only: [:index, :show]
+    delete 'cart_items/destroy_all' ,to: 'cart_items#destroy_all', as: 'destroy_all_cart_items'
     resources :cart_items, only: [:index, :create, :update, :destroy]
   end
 
