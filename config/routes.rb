@@ -13,7 +13,7 @@ Rails.application.routes.draw do
     patch 'customers/information',to: 'customers#update'
     resources :addresses, only: [:index, :edit, :create, :update, :destroy]
     resources :items, only: [:index, :show]
-    delete 'cart_items/destroy_all' ,to: 'cart_items#destroy_all', as: 'destroy_all_cart_items'
+    delete 'cart_items/destroy_all' ,to: 'cart_items#destroy_all'
     resources :cart_items, only: [:index, :create, :update, :destroy]
   end
 
