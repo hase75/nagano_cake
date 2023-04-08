@@ -11,6 +11,8 @@ Rails.application.routes.draw do
     get 'customers/my_page',to: 'customers#show'
     get 'customers/infomation/edit',to: 'customers#edit'
     patch 'customers/information',to: 'customers#update'
+    get 'customers/confirm',to: 'customers#confirm'
+    patch 'customers/withdraw',to: 'customers#withdraw'
     resources :addresses, only: [:index, :edit, :create, :update, :destroy]
     resources :items, only: [:index, :show]
     delete 'cart_items/destroy_all' ,to: 'cart_items#destroy_all'
