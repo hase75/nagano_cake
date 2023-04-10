@@ -15,7 +15,7 @@ class Public::OrdersController < ApplicationController
     @address = Address.find(params[:order][:address_id])
     @order.postal_code = @address.postal_code
     @order.address = @address.address
-    @order.name = @address.name
+    @order.name = current_customer.last_name + current_customer.first_name
 
     elsif params[:order][:select_address] = "new_address"
     @order.postal_code = params[:order][:postal_code]
@@ -56,7 +56,7 @@ class Public::OrdersController < ApplicationController
 
   def show
     @order = current_customer.orders.find(params[:id])
-    @order_detail = @order.order_details.includes(:item)
+    @order_detail = @order.order_details
   end
 
   private
