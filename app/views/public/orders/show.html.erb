@@ -9,14 +9,14 @@
       </thead>
       <tbody>
         <tr>
-          <td><%= @order_detail.order.created_at %></td>
-          <td><%= @order_detail.order.address %></td>
-          <td><%= @order_detail.order.payment_method %></td>
-          <td><%= @order_detail.order.status %></td>
+          <td><%= @order.created_at %></td>
+          <td><%= @order.address %></td>
+          <td><%= @order.payment_method %></td>
+          <td><%= @order.status %></td>
         </tr>
       </tbody>
     </table>
-    
+
     <h4>注文内容</h4>
     <table>
       <thead>
@@ -26,15 +26,17 @@
         <th>小計</th>
       </thead>
       <tbody>
-        <tr>
-          <td><%= @order_detail.item.name %></td>
-          <td><%= @order_detail.item.with_tax_price %></td>
-          <td><%= @order_detail.amount %></td>
-          <td><%= @order_detail.subtotal %></td>
-        </tr>
+        <% @order_detail.each do |order_detail| %>
+          <tr>
+            <td><%= order_detail.item.name %></td>
+            <td><%= order_detail.item.with_tax_price %></td>
+            <td><%= order_detail.amount %></td>
+            <td><%= order_detail.subtotal %></td>
+          </tr>
+        <% end %>
       </tbody>
     </table>
-    
+
   <h4>請求情報</h4>
     <table>
       <thead>
@@ -44,10 +46,9 @@
       </thead>
       <tbody>
         <tr>
-          <% @total_price +=  cart_item.subtotal %>
-  　　    　<td><%= @order_detai@total_priceme %></td>
-          <td><%= @order_detail.order.shipping_cost %></td>
-          <td><%= @order_detail.order.total_payment %></td>
+          <td><%= @order.order_details.sum(&:subtotal) %></td>
+          <td><%= @order.shipping_cost %></td>
+          <td><%= @order.total_payment %></td>
         </tr>
       </tbody>
     </table>
