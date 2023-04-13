@@ -1,25 +1,65 @@
-<h1>マイページ</h1>
+<div class="container my-5">
 
-<h4>登録情報</h4>
-  <p><%= link_to '編集する',customers_infomation_edit_path %></p>
+  <div class="row">
+    <div class="offset-1">
+      <h3 class="border rounded shadow-sm font-weight-bold px-3">マイページ</h3>
+    </div>
+  </div>
   
-<div>
-  <h4>氏名</h4>
-  <%= @customer.full_name %>
-  <h4>フリ</h4>
-  <%= @customer.full_name_kana %>
-  <h4>郵便番号</h4>
-  <%= @customer.postal_code %>
-  <h4>住所</h4>
-  <%= @customer.address %>
-  <h4>電話番号</h4>
-  <%= @customer.telephone_number %>
-  <h4>メールアドレス</h4>
-  <%= @customer.email %>
+  <div class="row mt-5">
+    <div class="offset-1 col-8">
+      <div class="row">
+        <h4>登録情報</h4>
+        <%= link_to '編集する',customers_infomation_edit_path,class: "btn btn-outline-success ml-5" %>
+      </div>
+      <div class="row mt-3">
+        <table class="table table-bordered border-dark">
+          <tbody>
+            <tr>
+              <td class="bg-secondary text-light">氏名</td>
+              <td><%= @customer.full_name %></td>
+            </tr>
+            <tr>
+              <td class="bg-secondary text-light">フリ</td>
+              <td><%= @customer.full_name_kana %></td>
+            </tr>
+            <tr>
+              <td class="bg-secondary text-light">郵便番号</td>
+              <td><%= @customer.postal_code %></td>
+            </tr>
+            <tr>
+              <td class="bg-secondary text-light">住所</td>
+              <td><%= @customer.address %></td>
+            </tr>
+            <tr>
+              <td class="bg-secondary text-light">電話番号</td>
+              <td><%= @customer.telephone_number %></td>
+            </tr>
+            <tr>
+              <td class="bg-secondary text-light">メールアドレス</td>
+              <td><%= @customer.email %></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+  
+  <div class="row mt-5">
+    <div class="offset-1">
+      <div class="row ml-1">
+        <h4>配送先</h4>
+        <%= link_to '一覧を見る', addresses_path, class: "btn btn-outline-primary ml-5" %>
+      </div>
+    </div>
+  </div>
+  
+  <div class="row mt-5">
+    <div class="offset-1">
+      <div class="row ml-1">
+        <h4>注文履歴</h4>
+        <%= link_to '一覧を見る', orders_path, class: "btn btn-outline-primary ml-4" %>
+      </div>
+    </div>
+  </div>
 </div>
-
-<h4>配送先</h4>
-  <p><%= link_to '一覧を見る', addresses_path %></p>
-  
-<h4>注文履歴</h4>
-  <p><%= link_to '一覧を見る', orders_path %></p>

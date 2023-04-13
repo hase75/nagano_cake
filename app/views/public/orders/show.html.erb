@@ -60,32 +60,32 @@
   </div>
   
   <div class="row mt-5">
-    <div class="offset-1">
-      <strong class="px-3">注文内容</strong>
-    </div>
-  </div>
-  <div class="row mt-3">
     <div class="offset-1 col-9">
-      <table class="table table-bordered border-dark ">
-        <thead>
-          <tr class="bg-secondary text-light">
-            <th>商品</th>
-            <th>単価(税込)</th>
-            <th>個数</th>
-            <th>小計</th>
-          </tr>
-        </thead>
-        <% @order_detail.each do |order_detail| %>
-        <tbody>
-          <tr>
-            <td><%= order_detail.item.name %></td>
-            <td><%= order_detail.item.with_tax_price %></td>
-            <td><%= order_detail.amount %></td>
-            <td><%= order_detail.subtotal %></td>
-          </tr>
-        </tbody>
-        <% end %>
-      </table>
-     </div>
+      <div class="row">
+        <strong class="px-3">注文内容</strong>
+      </div>
+      <div class="row mt-3">
+        <table class="table table-bordered border-dark ">
+          <thead>
+            <tr class="bg-secondary text-light">
+              <th>商品</th>
+              <th>単価(税込)</th>
+              <th>個数</th>
+              <th>小計</th>
+            </tr>
+          </thead>
+          <% @order_detail.each do |order_detail| %>
+          <tbody>
+            <tr>
+              <td><%= order_detail.item.name %></td>
+              <td><%= order_detail.item.with_tax_price %></td>
+              <td><%= order_detail.amount %></td>
+              <td><%= order_detail.subtotal %></td>
+            </tr>
+          </tbody>
+          <% end %>
+        </table>
+       </div>
+    </div>
   </div>
 </div>
