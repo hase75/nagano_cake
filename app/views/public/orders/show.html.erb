@@ -20,7 +20,7 @@
             </tr>
             <tr>
               <td class="bg-secondary text-light">配送先</td>
-              <td><%= @order.address %></td>
+              <td><%= "〒" + @order.postal_code + "  " + @order.address + "  " + @order.name %></td>
             </tr>
             <tr>
               <td class="bg-secondary text-light">支払い方法</td>
