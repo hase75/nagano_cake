@@ -5,6 +5,8 @@
   </div>
 
   <%= form_with model: @genre, url:admin_genres_path do |f| %>
+    <%= render 'layouts/error_messages', model: f.object %>
+
 
   <div class="row mt-5">
     <div class="col-sm-6">

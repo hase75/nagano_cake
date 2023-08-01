@@ -22,6 +22,9 @@
             <ul class="navbar-nav ml-auto">
             <% if admin_signed_in? %>
               <li class="nav-item">
+                <%= render 'admin/items/searchbar' %>
+              </li>
+              <li class="nav-item">
                 <%= link_to "商品一覧", admin_items_path, class: 'nav-link text-dark' %>
               </li>
               <li class="nav-item">
@@ -38,6 +41,9 @@
               </li>
             <% elsif customer_signed_in? %>
               <li class="nav-item">
+                <%= render 'public/items/searchbar' %>
+              </li>
+              <li class="nav-item">
                 <%= link_to "マイページ", customers_my_page_path, class: 'nav-link text-dark' %>
               </li>
               <li class="nav-item">
@@ -50,6 +56,9 @@
                 <%= link_to "ログアウト", destroy_customer_session_path, method: :delete, class: 'nav-link text-dark' %>
               </li>
             <% else %>
+              <li class="nav-item">
+                <%= render 'public/items/searchbar' %>
+              </li>
               <li class="nav-item">
                 <%= link_to "About", about_path, class: 'nav-link text-dark' %>
               </li>
@@ -69,12 +78,18 @@
       </nav>
     </header>
     <main class="mb-auto">
-    <%= yield %>
+      <% if flash[:notice] %>
+        <div class="alert" role="alert"><strong><%= notice %></strong></div>
+      <% end %>
+      <% if flash[:alert] %>
+        <div class="alert alert-danger" role="alert"><strong><%= alert %></strong></div>
+      <% end %>
+      <%= yield %>
     </main>
-      <footer class="footer text-block", style="background-color: #dcdcdc;">
-        <div class="container text-center mt-3">
-          <p>© ながのcake</p>
-        </div>
-      </footer>
+    <footer class="footer text-block", style="background-color: #dcdcdc;">
+      <div class="container text-center mt-3">
+        <p>© ながのcake</p>
+      </div>
+    </footer>
   </body>
 </html>

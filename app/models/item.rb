@@ -10,6 +10,14 @@ class Item < ApplicationRecord
     (price * 1.1).floor
   end
 
+  def self.search(keyword)
+    if keyword
+      Item.where(['name LIKE(?) OR price LIKE(?) OR introduction LIKE(?)',"%#{keyword}%","%#{keyword}%","%#{keyword}%"])
+    else
+      Item.all
+    end
+  end
+
 
   def get_image
     unless image.attached?
